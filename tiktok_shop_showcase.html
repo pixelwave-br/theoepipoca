@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitrine TikTok Shop - Meus Achados</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tiktok: {
+                            pink: '#FE2C55',
+                            cyan: '#25F4EE',
+                            dark: '#121212',
+                            card: '#1E1E24'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and smooth transitions */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f13 0%, #1a1a24 100%);
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 36, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 1.5rem;
+            background: linear-gradient(60deg, #FE2C55, #25F4EE);
+            padding: 2px;
+        }
+        .gradient-border-inner {
+            background: #181820;
+            border-radius: calc(1.5rem - 2px);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between min-h-screen py-8 px-4 sm:px-6">
+
+    <main class="w-full max-w-md mx-auto flex flex-col items-center space-y-6 my-auto">
+
+        <section class="flex flex-col items-center text-center space-y-3 w-full animate-fade-in">
+            <!-- Profile Picture with Glow Effect -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-tiktok-pink to-tiktok-cyan rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-white/20 bg-gray-800 shadow-xl">
+                    <img id="profileImage" src="avatar.jpeg" alt="Foto de Perfil do Canal" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x300/121212/FFFFFF?text=Creator'">
+                </div>
+                <span class="absolute bottom-1 right-1 bg-tiktok-pink text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-md flex items-center gap-1">
+                    <i class="fa-solid fa-check text-[10px]"></i> Verificado
+                </span>
+            </div>
+
+            <!-- Channel Name & Bio -->
+            <div class="space-y-1">
+                <h1 id="channelName" class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-2">
+                    Theo & Pipoca
+                </h1>
+                <p id="channelBio" class="text-sm text-gray-400 max-w-xs px-4">
+                    ✨ Os melhores achados do TikTok Shop com desconto exclusivo para vocês! 🛍️👇
+                </p>
+            </div>
+
+            
+        </section>
+
+        <section class="w-full animate-fade-in">
+            <div class="gradient-border shadow-2xl shadow-tiktok-cyan/10">
+                <div class="gradient-border-inner p-4 sm:p-5 flex flex-col space-y-4">
+                    
+                    <!-- Product Header Tag -->
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="bg-tiktok-pink/20 text-tiktok-pink border border-tiktok-pink/30 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5">
+                            <i class="fa-solid fa-fire text-[10px]"></i> Mais Vendido do TikTok
+                        </span>
+                        <span class="text-gray-400 flex items-center gap-1">
+                            <i class="fa-solid fa-star text-yellow-400 text-xs"></i> 4.9 (24.8k)
+                        </span>
+                    </div>
+
+                    <!-- Product Image Container -->
+                    <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-gray-900 group">
+                        <img id="productImage" src="peitoral.jpeg" alt="Produto em Destaque" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/500x500/121212/FFFFFF?text=Produto'">
+                        <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-semibold text-white border border-white/10">
+                        
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="space-y-2">
+                        <h2 id="productTitle" class="text-base sm:text-lg font-semibold text-white line-clamp-2 leading-snug">
+                            Coleira Peitoral Cachorro e Gato, Conjunto de Guia + Coleira Tipo Colete
+                        </h2>
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xs text-tiktok-cyan font-medium bg-tiktok-cyan/10 px-2 py-0.5 rounded">Desconto Exclusivo Theo & Pipoca</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button: Ver no TikTok Shop -->
+                    <div class="pt-2">
+                        <a id="tiktokShopButton" href="https://vt.tiktok.com/ZS9DgmKxYAPu4-gbD7h/" target="_blank" rel="noopener noreferrer" 
+                           class="relative group flex items-center justify-center gap-3 w-full py-3.5 px-6 rounded-xl font-bold text-white shadow-lg overflow-hidden transition-all duration-300 transform active:scale-98">
+                            <!-- Gradient background with animation -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-tiktok-pink via-purple-600 to-tiktok-cyan transition-all duration-300 group-hover:opacity-90"></div>
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-white transition-opacity duration-300"></div>
+                            
+                            <!-- Button Content -->
+                            <span class="relative z-10 flex items-center gap-2.5 text-sm sm:text-base tracking-wide">
+                                <i class="fa-brands fa-tiktok text-lg"></i>
+                                Ver no TikTok Shop
+                            </span>
+                            <i class="fa-solid fa-arrow-right relative z-10 text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full max-w-md mx-auto text-center mt-6 text-xs text-gray-500 space-y-1">
+        <p>Theo & Pipoca &bull; Desenvolvido para TikTok Shop</p>
+        <p class="text-[10px] text-gray-600">Ao clicar no botão, você será direcionado para o aplicativo oficial.</p>
+    </footer>
+
+    <div id="helpModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="glass-panel bg-[#181820] border border-white/10 rounded-2xl max-w-sm w-full p-6 space-y-4 shadow-2xl relative animate-fade-in">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-tiktok-cyan"></i> Dica de Ouro
+                </h3>
+                <button onclick="toggleModal()" class="text-gray-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-xs text-gray-300 leading-relaxed">
+                <p>O Instagram costuma abrir links dentro do navegador interno dele. Para garantir que o link abra <strong>diretamente no app do TikTok</strong>:</p>
+                <div class="bg-white/5 p-3 rounded-lg border border-white/5 space-y-2">
+                    <p class="font-medium text-white">Se o app não abrir direto:</p>
+                    <p>1. Toque nos <strong>três pontinhos (...)</strong> no canto superior direito do navegador do Instagram.</p>
+                    <p>2. Selecione <strong>"Abrir no navegador padrão"</strong> (Safari ou Chrome).</p>
+                    <p>3. O sistema abrirá o TikTok Shop instantaneamente para você comprar com segurança!</p>
+                </div>
+            </div>
+            <button onclick="toggleModal()" class="w-full py-2.5 bg-tiktok-pink text-white font-semibold rounded-xl text-xs hover:opacity-90 transition-opacity">
+                Entendi, fechar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle modal visibility function
+        function toggleModal() {
+            const modal = document.getElementById('helpModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Optional URL parameter customization handler for live preview testing
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Example usage to customize via URL: ?name=SeuNome&price=R$ 39,90&product=NomeDoProduto
+            if(params.has('name')) {
+                document.getElementById('channelName').innerHTML = '@' + params.get('name') + ' <span class="inline-block text-xs bg-tiktok-pink text-white px-1.5 py-0.5 rounded-full"><i class="fa-solid fa-check"></i></span>';
+            }
+            if(params.has('product')) {
+                document.getElementById('productTitle').innerText = params.get('product');
+            }
+            if(params.has('price')) {
+                document.getElementById('productPrice').innerText = params.get('price');
+            }
+        });
+    </script>
+</body>
+</html>
